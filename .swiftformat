@@ -1,0 +1,40 @@
+# SwiftFormat configuration file
+
+# Version
+--swiftversion 5.9
+
+# File options
+--exclude Pods,Carthage,.build,DerivedData
+
+# Format options
+--indent 4
+--indentcase false
+--trimwhitespace always
+--nospaceoperators
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--maxwidth 120
+--voidtype void
+--header strip
+
+# Rules
+--enable isEmpty
+--enable sortedImports
+--enable duplicateImports
+--enable blankLinesAtEndOfScope
+--enable blankLinesAtStartOfScope
+--enable blankLinesBetweenScopes
+--enable consecutiveBlankLines
+--enable consecutiveSpaces
+--enable redundantParens
+--enable redundantReturn
+--enable redundantSelf
+--enable sortImports
+--enable trailingClosures
+--enable unusedArguments
+--enable void
+
+# Disable some rules
+--disable andOperator
+--disable wrapMultilineStatementBraces
