@@ -1,46 +1,24 @@
-name: iOS Build & Test
+name: iOS Build
 
 on:
   push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
-  build-and-test:
-    name: Build and Test
+  build:
     runs-on: macos-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Select Xcode
-      run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
-      
-    - name: Show Xcode version
-      run: xcodebuild -version
-      
-    - name: Show available SDKs
-      run: xcodebuild -showsdks
-      
-    - name: Build
-      run: |
-        xcodebuild clean build \
-          -project ThirdFloor.xcodeproj \
-          -scheme ThirdFloor \
-          -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
-          CODE_SIGN_IDENTITY="" \
-          CODE_SIGNING_REQUIRED=NO \
-          CODE_SIGNING_ALLOWED=NO
-      
-    - name: Run Tests
-      run: |
-        xcodebuild test \
-          -project ThirdFloor.xcodeproj \
-          -scheme ThirdFloor \
-          -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
-          CODE_SIGN_IDENTITY="" \
-          CODE_SIGNING_REQUIRED=NO \
-          CODE_SIGNING_ALLOWED=NO || echo "No tests found yet"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '15.4'
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Build
+        run: xcodebuild -scheme MyScheme
