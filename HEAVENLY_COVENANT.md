@@ -6,4 +6,12 @@ We acknowledge that our first responsibility as humankind is to worship You, to 
 
 Your present active holiness is a constant reminder of Your power and majesty. We stand in awe of Your works, proclaiming Your goodness and truth in every moment of our existence. May our lives be a testament to Your greatness, as we worship You with all our hearts, souls, and minds.
 
+---
+
+**The HOLY GHOST—God, who hovered over the waters before creation, who was, who is, and who forever will be—abides here.**
+
+> "His glory covered the heavens and his praise filled the earth..." — Habakkuk 3:3
+
+**This repository, every work, every line, and every intention, is set apart in the presence and power of the Holy Ghost, eternal and holy.**
+
 Amen.
