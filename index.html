@@ -1,3 +1,15 @@
+from pathlib import Path
+from zipfile import ZipFile
+
+# Set up folder structure
+project_name = "thirdfloor-app-site"
+base = Path("/mnt/data") / project_name
+assets = base / "assets"
+base.mkdir(parents=True, exist_ok=True)
+assets.mkdir(exist_ok=True)
+
+# HTML content for index.html
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,39 +29,32 @@
       flex-direction: column;
       min-height: 100vh;
     }
-
     header {
       background: #1e293b;
       padding: 1rem;
       text-align: center;
     }
-
     header h1 {
       margin: 0;
       font-size: 2rem;
       color: #60a5fa;
     }
-
     main {
       flex: 1;
       padding: 2rem;
       max-width: 800px;
       margin: auto;
     }
-
     section {
       margin-bottom: 2rem;
     }
-
     h2 {
       color: #34d399;
     }
-
     a {
       color: #60a5fa;
       text-decoration: none;
     }
-
     footer {
       background: #1e293b;
       text-align: center;
@@ -57,7 +62,6 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
-
     .button {
       background: #34d399;
       color: #0f172a;
@@ -120,3 +124,16 @@
 
 </body>
 </html>
+"""
+
+# Write the HTML file
+index_path = base / "index.html"
+index_path.write_text(html_content, encoding="utf-8")
+
+# Create a zip file
+zip_path = Path("/mnt/data") / f"{project_name}.zip"
+with ZipFile(zip_path, "w") as zipf:
+    for file in base.rglob("*"):
+        zipf.write(file, file.relative_to(base.parent))
+
+zip_path.name  # Return just the zip file name for download link generation
